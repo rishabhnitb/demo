@@ -12,11 +12,11 @@ public class UserDAO {
 	
 	static {
 		
-		userList.add(new User("user1", "user1@mail.com"));
-		userList.add(new User("user2", "user2@mail.com"));
-		userList.add(new User("user3", "user3@mail.com"));
-		userList.add(new User("user4", "user4@mail.com"));
-		userList.add(new User("user5", "user5@mail.com"));
+		userList.add(new User("vatican city", "vc@mail.com"));
+		userList.add(new User("taj mahal", "tj@mail.com"));
+		userList.add(new User("red fort", "rf@mail.com"));
+		userList.add(new User("rahul gandhi", "raga@mail.com"));
+		userList.add(new User("summer rey", "srey@mail.com"));
 	}
 	
 	public static UserDAO getInstance() {
