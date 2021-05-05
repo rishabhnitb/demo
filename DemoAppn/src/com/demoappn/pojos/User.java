@@ -1,6 +1,5 @@
 package com.demoappn.pojos;
 
-import java.util.UUID;
 
 public class User {
 
@@ -9,13 +8,20 @@ public class User {
 	
 	private String mail;
 	
-	private UUID userID;
+	private String userID;
 
-	public User(String name, String mail) {
+	
+	
+	public User() {
+		super();
+		
+	}
+
+	public User(String name, String mail, String id) {
 		super();
 		this.name = name;
 		this.mail = mail;
-		this.userID = UUID.randomUUID();
+		this.userID = id;
 	}
 
 	public String getName() {
@@ -34,12 +40,12 @@ public class User {
 		this.mail = mail;
 	}
 
-	public UUID getUserID() {
+	public String getUserID() {
 		return userID;
 	}
 
-	public void setUserID() {
-		this.userID = UUID.randomUUID();
+	public void setUserID(String id) {
+		this.userID = id;
 	}
 	
 	
