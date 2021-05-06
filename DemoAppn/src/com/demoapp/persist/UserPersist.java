@@ -41,7 +41,7 @@ public class UserPersist {
 		 BasicDBObject obj = new BasicDBObject();        
 		 obj.append("mail", mail);     
 		 BasicDBObject query = new BasicDBObject();        
-		 query.putAll((BSONObject)query);
+		 query.putAll((BSONObject)obj);
 	   
 		 FindIterable<Document> documents = collection.find(query);
 		 return fetchUsers(documents);

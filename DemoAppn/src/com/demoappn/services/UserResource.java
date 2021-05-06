@@ -24,8 +24,8 @@ public class UserResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getUsers(){
-		
-		return persist.getAllUsers(dao.getCollection());
+		List<User> users = persist.getAllUsers(dao.getCollection());
+		return users;
 	}
 	
 	@GET
