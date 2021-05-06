@@ -29,11 +29,11 @@ public class UserResource {
 	}
 	
 	@GET
-	@Path("{userID}")
+	@Path("{mail}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<User> getSingeleUser(@PathParam("userID") String userID){
+	public List<User> getSingeleUser(@PathParam("mail") String mail){
 		
-		return persist.getUser(dao.getCollection(), userID);
+		return persist.getUser(dao.getCollection(), mail);
 	}
 	
 	@POST

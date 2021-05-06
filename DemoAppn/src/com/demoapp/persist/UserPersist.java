@@ -10,7 +10,6 @@ import org.bson.types.ObjectId;
 
 import com.demoappn.pojos.User;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -36,16 +35,16 @@ public class UserPersist {
 		return doc;
 	}
 	
-	public List<User> getUser(MongoCollection<Document> collection, String userID) {
+	public List<User> getUser(MongoCollection<Document> collection, String mail) {
 		
 	
 		 BasicDBObject obj = new BasicDBObject();        
-		 obj.append("_id", new ObjectId(userID));     
+		 obj.append("mail", mail);     
 		 BasicDBObject query = new BasicDBObject();        
 		 query.putAll((BSONObject)query);
 	   
 		 FindIterable<Document> documents = collection.find(query);
-	    return fetchUsers(documents);
+		 return fetchUsers(documents);
 	}
 	
 	public List<User> getAllUsers(MongoCollection<Document> collection){

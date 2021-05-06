@@ -1,7 +1,7 @@
 package com.demoappn.pojos;
 
-import java.security.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
@@ -17,6 +17,8 @@ public class User {
 	private Date createdAt;
 	
 	private Date updatedAt;
+	
+	private List<Review> reviews;
 	
 	
 	public User() {
@@ -69,6 +71,16 @@ public class User {
 	}
 
 	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
+		this.updatedAt = updatedAt; 
 	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+	
+	
 }
