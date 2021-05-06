@@ -22,17 +22,7 @@ public class DBInitialise {
 	public MongoCollection<Document> getCollection(){
 		 
 		
-		//MongoClient mongoClient = MongoClients.create();
-		//MongoDatabase database = mongoClient.getDatabase("database");
-		// MongoCollection<Document> collection = database.getCollection("users");
-
-//		MongoClient mongoClient = MongoClients.create("mongodb+srv://demo:demo123@cluster0.cbuby.mongodb.net/"
-//				+ "database?retryWrites=true&w=majority");
-//		
-	     // Accessing the database 
-	    // MongoDatabase database = mongoClient.getDatabase("database");
-	     //MongoCollection<Document> collection = database.getCollection("collection");
-		 
+		
 		MongoClient mongoClient = MongoClients.create(
 			    "mongodb+srv://demo:demo123@cluster0.cbuby.mongodb.net/database?"
 			    + "retryWrites=true&w=majority");
