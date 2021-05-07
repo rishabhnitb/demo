@@ -36,6 +36,14 @@ public class UserResource {
 		return persist.getUser(dao.getCollection(1), mail);
 	}
 	
+	@GET
+	@Path("/user/{userID}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<User> getUserDetails(@PathParam("userID") String userID){
+		
+		return persist.getUserReviews(userID, dao.getCollection(1), dao.getCollection(2));
+	}
+	
 	@POST
 	@Path("user")
 	@Consumes(MediaType.APPLICATION_JSON)

@@ -20,10 +20,10 @@ public class ReviewPersist {
 		// Performing a read operation on the collection.
 	    FindIterable<Document> documents = collection.find();
 		
-	    return fetchUsers(documents);
+	    return fetchReviews(documents);
 	}
 
-	private List<Review> fetchUsers(FindIterable<Document> documents) {
+	public List<Review> fetchReviews(FindIterable<Document> documents) {
 		
 		MongoCursor<Document> cursor = documents.iterator();
 		List<Review> reviews = new ArrayList<Review>();

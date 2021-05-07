@@ -8,6 +8,7 @@ import org.bson.BSONObject;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import com.demoappn.pojos.Review;
 import com.demoappn.pojos.User;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
@@ -76,4 +77,30 @@ public class UserPersist {
 		 }
 		 return users;
 	}
+
+	public List<User> getUserReviews(String userID, MongoCollection<Document> userCollection,
+			MongoCollection<Document> reviewCollection) {
+		
+		 BasicDBObject objUser = new BasicDBObject();        
+		 objUser.append("_id", new ObjectId(userID));     
+		 BasicDBObject queryUser = new BasicDBObject();        
+		 queryUser.putAll((BSONObject)objUser);
+		 FindIterable<Document> documentUser = userCollection.find(queryUser);
+		 List<User> user = fetchUsers(documentUser);
+		 
+		 BasicDBObject obj = new BasicDBObject();        
+		 obj.append("createdBy", userID);     
+		 BasicDBObject query = new BasicDBObject();        
+		 query.putAll((BSONObject)obj);
+		 FindIterable<Document> documentReview = reviewCollection.find(query);
+		 
+		 ReviewPersist reviewPersist = new ReviewPersist();
+		 List<Review> reviews = reviewPersist.fetchReviews(documentReview);
+		 
+		 user.get(0).setReviews(reviews);
+		 return user;
+		 
+	}
+	
+	
 }
