@@ -24,7 +24,7 @@ public class UserResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getUsers(){
-		List<User> users = persist.getAllUsers(dao.getCollection());
+		List<User> users = persist.getAllUsers(dao.getCollection(1));
 		return users;
 	}
 	
@@ -33,7 +33,7 @@ public class UserResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getSingeleUser(@PathParam("mail") String mail){
 		
-		return persist.getUser(dao.getCollection(), mail);
+		return persist.getUser(dao.getCollection(1), mail);
 	}
 	
 	@POST
@@ -42,7 +42,7 @@ public class UserResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> createUser(User user){
 		
-		return persist.createUser(user, dao.getCollection());
+		return persist.createUser(user, dao.getCollection(1));
 	}
 	
 }

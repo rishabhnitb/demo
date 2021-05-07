@@ -19,16 +19,25 @@ public class DBInitialise {
 		return instance;
 	}
 	
-	public MongoCollection<Document> getCollection(){
+	public MongoCollection<Document> getCollection(int code){
 		 
 		
-		
+		MongoCollection<Document> collection;
 		MongoClient mongoClient = MongoClients.create(
 			    "mongodb+srv://demo:demo123@cluster0.cbuby.mongodb.net/database?"
 			    + "retryWrites=true&w=majority");
-			MongoDatabase database = mongoClient.getDatabase("database");
-			MongoCollection<Document> collection = database.getCollection("collection");
+			MongoDatabase database = this.getMongoDb(mongoClient);
+			if(code == 1) {
+				collection = database.getCollection("collection");
+			}else {
+				collection = database.getCollection("reviews");
+			}
 	     
 	     return collection;
+	}
+	
+	public MongoDatabase getMongoDb(MongoClient mongoClient) {
+		
+		return mongoClient.getDatabase("database");
 	}
 }
